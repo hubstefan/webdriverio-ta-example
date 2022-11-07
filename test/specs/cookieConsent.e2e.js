@@ -10,6 +10,5 @@ describe('Cookie consent tests', () => {
       await cookieConsent.cookieAcceptButton.click();
       await expect(cookieConsent.cookieConsentPopup).not.toBeDisplayed();
     });
+
 });
-
-

@@ -19,6 +19,7 @@
         "wdio-wait-for": "^3.0.0"
     },
     "scripts": {
-        "e2e:local": "npx wdio run ./wdio.conf.js"
+        "e2e:headful:local": "npx wdio run wdio.conf.js",
+        "e2e:headless:local": "npx wdio run wdio.conf.headless.local.js"
     }
 }

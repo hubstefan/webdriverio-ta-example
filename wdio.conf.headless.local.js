@@ -49,6 +49,7 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
+    
     capabilities: [{
     
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
@@ -58,13 +59,23 @@ exports.config = {
         //
         browserName: 'chrome',
         'goog:chromeOptions': {
-            // binary: CHROME_BIN_PATH,
             args: [
+                '--headless',
                 '--incognito',
+                '--disable-gpu',
                 '--disable-extensions',
+                '--window-size=1920,1200',
+                '--start-maximized',
+                '--enable-automation',
                 // '--enable-experimental-ui-automation',
-                // '--enable-automation'
+                '--ignore-certificate-errors',
+                '--no-sandbox',
+                '--disable-dev-shm-usag',
+                '--user-agent=chrome' // Needed in order to run locally
+                // "--proxy-bypass-list=*",
+                // "--proxy-server='direct://'"
             ],
+            // binary: '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'  // Does not seem to be needed
         },
         acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
@@ -79,7 +90,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'warn',
     //
     // Set specific log levels per logger
     // loggers:
