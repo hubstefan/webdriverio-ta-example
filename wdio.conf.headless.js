@@ -1,3 +1,4 @@
+
 exports.config = {
     //
     // ====================
@@ -49,14 +50,16 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    hostname: 'localhost',
-    port: 4444,
+
+    // @@ Todo: Investigate
+    // hostname: 'localhost',
+    // port: 4444,
 
     capabilities: [{
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 5,
+        maxInstances: 2,
         //
         browserName: 'chrome',
         'goog:chromeOptions': {
@@ -72,7 +75,7 @@ exports.config = {
                 '--ignore-certificate-errors',
                 '--no-sandbox',
                 '--disable-dev-shm-usag',
-                '--user-agent=chrome' // Needed in order to run locally
+                // '--user-agent=chrome' // Needed in order to run locally
                 // "--proxy-bypass-list=*",
                 // "--proxy-server='direct://'"
             ],
@@ -133,7 +136,7 @@ exports.config = {
     // commands. Instead, they hook themselves up into the test process.
 
     
-    // services: ['chromedriver'], // @@ Not needed for :local
+    // services: ['chromedriver'], // @@ Not needed for :local (?)
     
 
     // Framework you want to run your specs with.
@@ -323,4 +326,5 @@ exports.config = {
     */
     // onReload: function(oldSessionId, newSessionId) {
     // }
+
 }
