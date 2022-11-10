@@ -20,6 +20,8 @@
     },
     "scripts": {
         "e2e:headful:local": "npx wdio run wdio.conf.js",
-        "e2e:headless:local": "npx wdio run wdio.conf.headless.local.js"
+        "e2e:headless:local": "npx wdio run wdio.conf.headless.local.js",
+        "e2e:headless": "npx wdio run  wdio.conf.headless.js",
+        "e2e:docker": "./dockerRun.sh"
     }
 }
