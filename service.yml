@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service # Kubernetes service
+metadata:
+  name: selenium-srv # hub
+  labels: # new
+    name: selenium-hub # new
+spec:
+  selector:
+    app: selenium-hub
+  ports:
+  - port: 4444
+    nodePort: 30001
+    targetPort: 4444
+  type: NodePort
+  sessionAffinity: None
