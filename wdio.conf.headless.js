@@ -48,9 +48,10 @@ exports.config = {
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
-    //
-    hostname: 'localhost',
-    port: 4444,
+
+    // @@ Todo: Investigate
+    // hostname: 'localhost',
+    // port: 4444,
 
     capabilities: [{
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium

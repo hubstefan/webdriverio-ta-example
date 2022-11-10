@@ -72,7 +72,7 @@ Check status of the pods that are spun up by the replicaiton controllers created
 ```
 kubectl get pods
 ```
-There should be 7 pods, one for the selenium hub, 3 for chrome and 3 firefox pods. If all went well they are in status Running and the number of restarts are 0 or at least not increasing in number with time.
+**Important!** There should be 7 pods, one for the selenium hub, 3 for chrome and 3 firefox pods. If all went well they are in status Running and the number of restarts are 0 or at least not increasing in number with time.
 
 Other useful dashboards, will lock the terminal window:
 ```
