@@ -64,20 +64,15 @@ exports.config = {
         browserName: 'chrome',
         'goog:chromeOptions': {
             args: [
-                '--headless',
                 '--incognito',
                 '--disable-gpu',
                 '--disable-extensions',
                 '--window-size=1920,1200',
                 '--start-maximized',
                 '--enable-automation',
-                // '--enable-experimental-ui-automation',
                 '--ignore-certificate-errors',
                 '--no-sandbox',
                 '--disable-dev-shm-usag',
-                // '--user-agent=chrome' // Needed in order to run locally
-                // "--proxy-bypass-list=*",
-                // "--proxy-server='direct://'"
             ],
             // binary: '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'  // Does not seem to be needed
         },
