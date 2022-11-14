@@ -1,4 +1,4 @@
-// Todo:  An idea: Import and make use of wdio.conf.js as a template
+// Todo: Import and make use of wdio.conf.js as a template
 
 exports.config = {
     //
@@ -53,12 +53,10 @@ exports.config = {
     //
     
     capabilities: [{
-    
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 5,
-        //
+        maxInstances: 2,
         browserName: 'chrome',
         'goog:chromeOptions': {
             args: [
@@ -69,13 +67,10 @@ exports.config = {
                 '--window-size=1920,1200',
                 '--start-maximized',
                 '--enable-automation',
-                // '--enable-experimental-ui-automation',
                 '--ignore-certificate-errors',
                 '--no-sandbox',
                 '--disable-dev-shm-usag',
                 '--user-agent=chrome' // Needed in order to run locally
-                // "--proxy-bypass-list=*",
-                // "--proxy-server='direct://'"
             ],
             // binary: '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'  // Does not seem to be needed
         },
@@ -84,6 +79,14 @@ exports.config = {
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
+    }, 
+    {
+        maxInstances: 2,
+        browserName: 'MicrosoftEdge',
+        'moz:firefoxOptions': {
+          args: ['-headless'],
+        },
+        acceptInsecureCerts: true,
     }],
     //
     // ===================
