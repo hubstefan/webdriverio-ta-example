@@ -1,5 +1,5 @@
 # webdriverio-ta-example
-Webdriver.io test automation example
+Webdriver.io test automation example validating page: https://www.volvocars.com/intl/v/car-safety/a-million-more
 
 ## Prerequisites
 
@@ -71,15 +71,15 @@ A first attempt to use minikube was done which is still present as a poc in a br
 When possible - objects are found by role and then by using text content. As a last resort test data id's are used. This philosophy is inspired by https://kentcdodds.com/blog/making-your-ui-tests-resilient-to-change
 
 ### Page object pattern
-The page object pattern is mainly used because it was suggested by the wdio biolerplate setup. It might, but might also not be neede in this particular case.
+The page object pattern is mainly used because it was suggested by the wdio boilerplate setup. It might, but might also not be needed in this particular case.
 
 ### Test files
-I have chosen to divide the tests for the page itself into two files with the following separation of concerns:
+The tests for the page itself has been divided into two files with the following separation of concerns:
 
 **aMillionMore.pageTests.e2e.js**
 
-This file contain tests that are of structural type for the page. Is the header there, does the page work technically?
+Contain tests that are of structural type for the page. Is the header there, does the page work technically?
 
 **aMillionMoreLives.feature.e2e.js**
 
-This file contain tests related to the feature, i.e. the intended impact on the user from a higher business perspective. E.g. are we listing the correct main security features? 
+Contain tests related to the feature, i.e. the intended impact on the user from a higher business perspective. For example - are we listing the correct main security features? 
