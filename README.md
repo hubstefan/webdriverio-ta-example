@@ -1,17 +1,12 @@
 # webdriverio-ta-example
-Webdriver.io test automation example
-
-## Introduction
-
-
+Webdriver.io test automation example validating page: https://www.volvocars.com/intl/v/car-safety/a-million-more
 
 ## Prerequisites
 
 This testing framework has been developed in javascript using node version v18.12.0 and npm version 8.19.2.
 Version of git has been 2.16.3 but any recent version should do.
 
-A mac is used with docker installed.
-
+A mac is used with docker desktop installed.
 
 ## Installation
 
@@ -29,7 +24,7 @@ Install the npm packages:
 ```
 npm install
 ```
-### Install docker & minikube environment
+### Install docker
 Install docker desktop and docker-compose.
 
 ## Controlling the selenium grid environment
@@ -37,12 +32,10 @@ Install docker desktop and docker-compose.
 ```
 npm run env:start
 ```
-
 ### Stopping the environment
 ```
 npm run env:stop
 ```
-
 
 ## Running the test
 
@@ -63,15 +56,30 @@ Execute the test:
 ```
 npm run e2e:docker
 ```
+### Clear old reports and screenshots 
+
+```
+npm run clear:reports
+```
 
 ## Design decisions
 
 ### Choosing selenium grid environment
+A first attempt to use minikube was done which is still present as a poc in a branch. Then due to time constraints reverted to using the simpler selenium grid solution.
 
 ### Choosing selectors
+When possible - objects are found by role and then by using text content. As a last resort test data id's are used. This philosophy is inspired by https://kentcdodds.com/blog/making-your-ui-tests-resilient-to-change
 
 ### Page object pattern
+The page object pattern is mainly used because it was suggested by the wdio boilerplate setup. It might, but might also not be needed in this particular case.
 
 ### Test files
+The tests for the page itself has been divided into two files with the following separation of concerns:
 
+**aMillionMore.pageTests.e2e.js**
 
+Contain tests that are of structural type for the page. Is the header there, does the page work technically?
+
+**aMillionMoreLives.feature.e2e.js**
+
+Contain tests related to the feature, i.e. the intended impact on the user from a higher business perspective. For example - are we listing the correct main security features? 

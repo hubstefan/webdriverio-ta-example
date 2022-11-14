@@ -1,4 +1,4 @@
-// Todo: @@ An idea: Import and make use of wdio.conf.js as a template
+// Todo: Import and make use of wdio.conf.js as a template
 
 exports.config = {
     //
@@ -74,13 +74,20 @@ exports.config = {
                 '--no-sandbox',
                 '--disable-dev-shm-usag',
             ],
-            // binary: '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'  // Does not seem to be needed
         },
         acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
+    }, 
+    {
+        maxInstances: 2,
+        browserName: 'MicrosoftEdge',
+        'moz:firefoxOptions': {
+          args: ['-headless'],
+        },
+        acceptInsecureCerts: true,
     }],
     //
     // ===================
