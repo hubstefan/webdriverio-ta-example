@@ -1,3 +1,4 @@
+// Todo: @@ An idea: Import and make use of wdio.conf.js as a template
 
 exports.config = {
     //
@@ -51,7 +52,6 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
 
-    // @@ Todo: Investigate
     // hostname: 'localhost',
     // port: 4444,
 
@@ -131,7 +131,7 @@ exports.config = {
     // commands. Instead, they hook themselves up into the test process.
 
     
-    // services: ['chromedriver'], // @@ Not needed for :local (?)
+    // services: ['chromedriver'],
     
 
     // Framework you want to run your specs with.
@@ -163,6 +163,8 @@ exports.config = {
                 reportTitle: 'Test Report',
                 showInBrowser: false,
                 useOnAfterCommandForScreenshot: true,
+                linkScreenshots: true,
+                collapseTests: true,
             },
         ],
     ],
@@ -268,8 +270,10 @@ exports.config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
+     afterTest: async function (test, context, { error, result, duration, passed, retries }) {
+        if (!passed) await browser.takeScreenshot();
+        await browser.reloadSession();
+    },
 
 
     /**
