@@ -54,7 +54,7 @@ module.exports.config = {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 5,
+        maxInstances: 1, // @@ 5,
         //
         browserName: 'chrome',
         'goog:chromeOptions': {
@@ -63,7 +63,7 @@ module.exports.config = {
                 '--incognito',
                 '--disable-extensions',
                 // '--enable-experimental-ui-automation',
-                // '--enable-automation'
+                '--enable-automation'
             ],
         },
         acceptInsecureCerts: true
@@ -103,7 +103,7 @@ module.exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://www.volvocars.com',
+    baseUrl: 'https://www.volvocars.com/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -150,6 +150,8 @@ module.exports.config = {
                 reportTitle: 'Test Report',
                 showInBrowser: false,
                 useOnAfterCommandForScreenshot: true,
+                linkScreenshots: true,
+                collapseTests: true,
             },
         ],
     ],
@@ -255,9 +257,10 @@ module.exports.config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
-
+    afterTest: async function (test, context, { error, result, duration, passed, retries }) {
+        if (!passed) await browser.takeScreenshot();
+        await browser.reloadSession();
+    },
 
     /**
      * Hook that gets executed after the suite has ended

@@ -13,6 +13,7 @@
         "@wdio/spec-reporter": "^7.25.4",
         "chromedriver": "^107.0.2",
         "mocha": "^10.1.0",
+        "rimraf": "^3.0.2",
         "wdio-chromedriver-service": "^8.0.0",
         "wdio-html-nice-reporter": "^8.0.5",
         "wdio-spec-reporter": "^0.1.5",
@@ -24,6 +25,7 @@
         "e2e:headless": "npx wdio run wdio.conf.headless.js",
         "e2e:docker": "./scripts/dockerRun.sh",
         "env:start": "touch .env && docker-compose up -d",
-        "env:stop": "docker-compose down"
+        "env:stop": "docker-compose down",
+        "clear:reports": "rimraf reports"
     }
 }
